@@ -1,0 +1,28 @@
+    {% include "header.html" %}
+    
+    {%include "search.html" %}
+
+    <!-- Categories -->
+    <section class="categories my-2">
+        <div class="container flex">
+            <h1>Find by Categories</h1>
+            {%for d in data%}
+            <div class="card" onclick=document.location="{{'recipes?c='+d['strCategory']}}">
+                <div><img src="{{d['strCategoryThumb']}}" alt="food"></div>
+                <h2 class="card-text">{{d['strCategory']}}</h2>
+            </div>
+            {%endfor%}
+        </div>
+    </section>
+
+    <!-- Search
+    <section class="search m-main">
+        <h1 class="text-heading">Search Recipe</h1>
+        <div class="container flex">
+            <input type="search" placeholder="i.e. Chicken Biryani">
+            <button class="btn">Search</button>
+        </div>
+    </section> -->
+
+</body>
+</html>
