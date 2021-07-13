@@ -1,0 +1,38 @@
+{% include 'header.html' %}
+
+{%include "search.html" %}
+
+    <!-- Recipe -->
+    <section class="recipe my-2">
+        <div class="container flex">
+            <h1 class="my-3">Recipe: {{data['strMeal']}}</h1>
+            <div class="meal-detail">
+                <iframe src="{{data['strYoutube'].replace('https://www.youtube.com/watch?v=', 'https://www.youtube.com/embed/')}}" frameborder="0"></iframe>
+                <div class="meal-para my-1">
+                     <h3 class="my-1">Category: {{data['strCategory']}}</h3>
+                     <hr>
+                     <h3 class="my-1">Area: {{data['strArea']}}</h3>
+                     <hr>
+                     <div id="ingredients" class="flex">
+                        <h3 class="my-1">Ingredients:</h3>
+                        <hr>
+                        <ol>
+                            {% for i in range(1, 21) %}
+                            {% if data['strIngredient{}'.format(i)] %}
+                            <li>{{data['strIngredient{}'.format(i)]}}</li>
+                            {% endif %}
+                            {% endfor %}
+                        </ol>
+                    </div>
+                </div>
+            </div>
+            
+            <div>
+                <h2 class="text-center my-1">Instructions:</h2>
+                    <p>{{data['strInstructions']}}</p>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>
